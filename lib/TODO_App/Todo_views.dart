@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:crud/Curd/Product_Details.dart';
 import 'package:crud/Curd/Product_add.dart';
 import 'package:crud/TODO_App/Todo_Add.dart';
+import 'package:crud/TODO_App/Todo_Details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -127,10 +128,10 @@ class _Todo_viewState extends State<Todo_view> {
           if (snapshot.hasError) {
             return Text('error: ${snapshot.error}');
           }
-          final product = snapshot.data?.docs ?? [];
+          final Todo = snapshot.data?.docs ?? [];
           return ListView.builder(
             itemBuilder: (context, index) {
-              final doc = product[index];
+              final doc = Todo[index];
               final Tododetails = doc.data() as Map<String, dynamic>;
 
               return Padding(
@@ -141,7 +142,7 @@ class _Todo_viewState extends State<Todo_view> {
                     onTap: () {
                       Navigator.push(context, MaterialPageRoute(
                         builder: (context) {
-                          return Product_Description(id: doc.id);
+                          return Todo_Description(id: doc.id);
                         },
                       ));
                     },
@@ -255,7 +256,7 @@ class _Todo_viewState extends State<Todo_view> {
                                                 Border.all(color: Colors.black),
                                             gradient: LinearGradient(
                                               colors: [
-                                                Colors.black,
+                                                Colors.purple,
                                                 Colors.blue
                                               ],
                                               begin: Alignment.topLeft,
@@ -290,8 +291,8 @@ class _Todo_viewState extends State<Todo_view> {
                                                 Border.all(color: Colors.black),
                                             gradient: LinearGradient(
                                               colors: [
-                                                Colors.black,
-                                                Colors.blue
+                                                Colors.blue,
+                                                Colors.purple
                                               ],
                                               begin: Alignment.topLeft,
                                               end: Alignment.bottomRight,
@@ -317,7 +318,7 @@ class _Todo_viewState extends State<Todo_view> {
                 ),
               );
             },
-            itemCount: product.length,
+            itemCount: Todo.length,
           );
         },
       ),

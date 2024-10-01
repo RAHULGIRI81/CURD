@@ -39,7 +39,7 @@ class _Product_DescriptionState extends State<Product_Description> {
             children: [
               Card(
                   child:Text(
-            product!["Productdetails"],
+            product!["productdetail"],
             style: TextStyle(fontWeight: FontWeight.bold, fontSize: 30,),
           ),)
             ],
