@@ -41,12 +41,14 @@ class _Todo_AddState extends State<Todo_Add> {
     'Select',
   ];
   String Selected_item='Select';
+  String _selectedValue = 'nu ll';
 
   var Name_ctrl = TextEditingController();
   var Age_ctrl = TextEditingController();
   var Address_ctrl = TextEditingController();
   var Email_ctrl = TextEditingController();
   var Qualification_ctrl = TextEditingController();
+
 
 
 
@@ -57,6 +59,7 @@ class _Todo_AddState extends State<Todo_Add> {
       "Address": Address_ctrl.text,
       "Email": Email_ctrl.text,
       "Qualification": _selectedItem,
+      "Gender": _selectedValue,
     });
     print("Add successfully data******************************");
     Navigator.of(context).pop();
@@ -125,6 +128,72 @@ class _Todo_AddState extends State<Todo_Add> {
                     hintText: 'Age',
                   ),
                 ),
+
+                SizedBox(height: 10),
+                Container(decoration: BoxDecoration(color: Colors.white,borderRadius: BorderRadius.circular(10)),
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      children: [
+                        Row(
+                          children: [
+                            Text(
+                              'Gender',
+                              style: GoogleFonts.poppins(fontWeight: FontWeight.bold),
+                            ),
+                          ],
+                        ),
+                        Row(
+                          children: [
+                            Row(
+                              children: [
+                                Radio<String>(
+                                  value: 'Male',
+                                  groupValue: _selectedValue,
+                                  onChanged: (String? value) {
+                                    setState(() {
+                                      _selectedValue = value!;
+                                    });
+                                  },
+                                ),
+                                Text('Male',style: GoogleFonts.poppins(),),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Radio<String>(activeColor: Colors.white,
+                                  value: 'Female',
+                                  groupValue: _selectedValue,
+                                  onChanged: (String? value) {
+                                    setState(() {
+                                      _selectedValue = value!;
+                                    });
+                                  },
+                                ),
+                                Text('Female',style: GoogleFonts.poppins(),),
+                              ],
+                            ),
+                            Row(
+                              children: [
+                                Radio<String>(
+                                  value: 'Others',
+                                  groupValue: _selectedValue,
+                                  onChanged: (String? value) {
+                                    setState(() {
+                                      _selectedValue = value!;
+                                    });
+                                  },
+                                ),
+                                Text('Others',style: GoogleFonts.poppins(),),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+
                 SizedBox(height: 10),
                 Row(
                   children: [

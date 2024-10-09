@@ -38,13 +38,13 @@ class _Todo_DescriptionState extends State<Todo_Description> {
             ),
             body: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Container(decoration: BoxDecoration(gradient: LinearGradient(
+              child: Container(width: 400,height: 300,decoration: BoxDecoration(gradient: LinearGradient(
                 colors: [
                   Colors.blue,
                   Colors.white,
                 ],
                 begin: Alignment.topRight,
-                end: Alignment.bottomRight,
+                end: Alignment.bottomLeft,
               ),),
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -92,20 +92,44 @@ class _Todo_DescriptionState extends State<Todo_Description> {
                           Row(
                             children: [
                               Text(
-                                "Age      :",
+                                "Age  :",
                                 style:
                                 TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
                               ),
+                              SizedBox(width: 10,),
                               Text(
                                 Todo!["Age"],
                                 style:
-                                    TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                                TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                               ),
                             ],
                           ),
                         ],
                       ),
                     ),
+                    SizedBox(
+                      height: 10,
+                    ),
+                    Align(
+                        alignment: Alignment.centerLeft,
+                        child: Wrap(
+                          children: [
+                            Row(
+                              children: [
+                                Text(
+                                  " Gender :",
+                                  style:
+                                  TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                                ),
+                                Text(
+                                  Todo!["Gender"],
+                                  style: TextStyle(
+                                      fontWeight: FontWeight.bold, fontSize: 20),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )),
                     SizedBox(
                       height: 10,
                     ),
