@@ -2,6 +2,9 @@
 
 import 'package:crud/Curd/Product_add.dart';
 import 'package:crud/Curd/Product_view.dart';
+import 'package:crud/Shop/Fruits.dart';
+import 'package:crud/Shop/Shop_Add_cart.dart';
+import 'package:crud/Shop/Shop_View_cart.dart';
 import 'package:crud/TODO_App/Todo_Add.dart';
 import 'package:crud/TODO_App/Todo_views.dart';
 import 'package:flutter/material.dart';
@@ -47,7 +50,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Todo_view(),
+      home: View_product(),
     );
   }
 }
